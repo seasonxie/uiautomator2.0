@@ -1,0 +1,58 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+
+  /*compileOptions {
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }*/
+
+    defaultConfig {
+        applicationId "com.u2.zhaotang.uiautomator2test"
+        minSdkVersion 21
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        //使用u2的runner执行脚本
+        //testInstrumentationRunner "com.meizu.u2.runner.BaseRunner"
+
+        //如果有需要使用自己编写的unner执行脚本，就使用下面这行代码
+        //testInstrumentationRunner "com.u2.zhaotang.uiautomator2test.runner.MyRunner"
+
+        //默认
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //compile group: 'com.relevantcodes', name: 'extentreports', version:'2.40.2'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    androidTestCompile 'com.android.support:support-annotations:23.1.1'
+    androidTestCompile 'com.android.support.test:runner:0.4.1'
+    // Set this dependency if you want to use Hamcrest matching
+    androidTestCompile 'org.hamcrest:hamcrest-library:1.3'
+    compile 'com.android.support.test:runner:0.4.1'
+    testCompile 'junit:junit:4.12'
+
+
+   /* //-----------以下类库版本如有更新会邮件通知--------------
+    //U2相关类库
+    androidTestCompile 'test.dev:u2:1.0.1'
+    androidTestCompile 'test.auto.cloud:u2common:1.0.6'
+    //公共库
+    androidTestCompile 'test.dev:utf7ime:1.0.0'
+    androidTestCompile 'test.dev:matcher:1.0.6'
+    androidTestCompile 'test.dev:datamaker:1.3'*/
+}
